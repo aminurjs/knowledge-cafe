@@ -6,7 +6,7 @@
     "author-img": "https://i.ibb.co/F4cFp2B/boy1.png",
     "posted-date": "2023-09-01",
     "title": "The Rise and Fall of Virtual Reality",
-    "reading-time": "8 min read",
+    "reading-time": 8,
     "hashtags": ["#Tech", "#VirtualReality", "#Innovation"]
   },
   {
@@ -16,7 +16,7 @@
     "author-img": "https://i.ibb.co/zxp6Nkm/boy2.jpg",
     "posted-date": "2023-08-25",
     "title": "The Culinary Journey: Exploring World Cuisines",
-    "reading-time": "12 min read",
+    "reading-time": 12,
     "hashtags": ["#Food", "#Cuisine", "#Travel"]
   },
   {
@@ -26,7 +26,7 @@
     "author-img": "https://i.ibb.co/ZY3rkp9/girl1.jpg",
     "posted-date": "2023-09-05",
     "title": "A Dive into the Deep Blue: Oceans and their Secrets",
-    "reading-time": "10 min read",
+    "reading-time": 10,
     "hashtags": ["#Nature", "#Oceans", "#Adventure"]
   },
   {
@@ -36,7 +36,7 @@
     "author-img": "https://i.ibb.co/Czv5krp/girl2.jpg",
     "posted-date": "2023-09-10",
     "title": "Artificial Intelligence: The Future of Humanity",
-    "reading-time": "15 min read",
+    "reading-time": 15,
     "hashtags": ["#AI", "#Technology", "#Future"]
   },
   {
@@ -46,7 +46,7 @@
     "author-img": "https://i.ibb.co/cXHFjFD/profile.png",
     "posted-date": "2023-09-03",
     "title": "Mastering the Art of Mindfulness in a Busy World",
-    "reading-time": "9 min read",
+    "reading-time": 9,
     "hashtags": ["#Mindfulness", "#Wellness", "#MentalHealth"]
   }
 ]

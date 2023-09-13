@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
+import PropTypes from "prop-types";
 
-const Blogs = ({ handleBookmarks }) => {
+const Blogs = ({ handleBookmarks, handleRead }) => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     fetch("data.json")
@@ -28,7 +29,7 @@ const Blogs = ({ handleBookmarks }) => {
             </div>
             <div>
               <p className="text-gray-400 font-semibold">
-                {blog["reading-time"]}{" "}
+                {blog["reading-time"]} min read
                 <button
                   onClick={() => handleBookmarks(blog.title)}
                   className="ml-2 text-gray-500"
@@ -50,7 +51,10 @@ const Blogs = ({ handleBookmarks }) => {
               {hashtag}
             </a>
           ))}
-          <button className="block mt-2 font-semibold text-lg text-[#6047EC] underline">
+          <button
+            onClick={() => handleRead(blog["reading-time"])}
+            className="block mt-2 font-semibold text-lg text-[#6047EC] underline"
+          >
             Mark as read
           </button>
         </div>
@@ -58,5 +62,8 @@ const Blogs = ({ handleBookmarks }) => {
     </div>
   );
 };
-
+Blogs.propTypes = {
+  handleBookmarks: PropTypes.func,
+  handleRead: PropTypes.func,
+};
 export default Blogs;
