@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 
-const Blogs = () => {
+const Blogs = ({ handleBookmarks }) => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     fetch("data.json")
@@ -28,7 +29,10 @@ const Blogs = () => {
             <div>
               <p className="text-gray-400 font-semibold">
                 {blog["reading-time"]}{" "}
-                <button className="ml-2 text-gray-500">
+                <button
+                  onClick={() => handleBookmarks(blog.title)}
+                  className="ml-2 text-gray-500"
+                >
                   <FaBookmark />
                 </button>
               </p>
