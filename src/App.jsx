@@ -6,16 +6,26 @@ import Bookmarks from "./Components/Bookmarks/Bookmarks";
 
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
+  const [added, setAdded] = useState(false);
   const handleBookmarks = (title) => {
+    const findT = bookmarks.find((findTitle) => findTitle === title);
+    if (findT) {
+      const bookmarkAdded = bookmarks.filter((bookmark) => bookmark !== title);
+      setBookmarks(bookmarkAdded);
+      setAdded(false);
+      return;
+    }
+    setAdded(true);
     const newTitle = [...bookmarks, title];
     setBookmarks(newTitle);
-    console.log(title, bookmarks);
   };
   const [read, setRead] = useState(0);
   const handleRead = (time) => {
+    //const handleRead = (time, title) =>
     const newTime = read + time;
     setRead(newTime);
-    console.log(read);
+    // const readOk = bookmarks.filter((bookmark) => bookmark !== title);
+    // setBookmarks(readOk);
   };
   return (
     <>
@@ -25,6 +35,7 @@ function App() {
           <Blogs
             handleBookmarks={handleBookmarks}
             handleRead={handleRead}
+            added={added}
           ></Blogs>
           <Bookmarks bookmarks={bookmarks} read={read}></Bookmarks>
         </div>

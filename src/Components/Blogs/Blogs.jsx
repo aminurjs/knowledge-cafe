@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import PropTypes from "prop-types";
 
-const Blogs = ({ handleBookmarks, handleRead }) => {
+const Blogs = ({ handleBookmarks, handleRead, added }) => {
+  console.log(added);
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     fetch("data.json")
@@ -32,7 +33,9 @@ const Blogs = ({ handleBookmarks, handleRead }) => {
                 {blog["reading-time"]} min read
                 <button
                   onClick={() => handleBookmarks(blog.title)}
-                  className="ml-2 text-gray-500"
+                  className={`ml-2 ${
+                    !added ? "text-gray-500" : "text-purple-500"
+                  }`}
                 >
                   <FaBookmark />
                 </button>
@@ -52,7 +55,7 @@ const Blogs = ({ handleBookmarks, handleRead }) => {
             </a>
           ))}
           <button
-            onClick={() => handleRead(blog["reading-time"])}
+            onClick={() => handleRead(blog["reading-time"], blog.title)}
             className="block mt-2 font-semibold text-lg text-[#6047EC] underline"
           >
             Mark as read
@@ -65,5 +68,6 @@ const Blogs = ({ handleBookmarks, handleRead }) => {
 Blogs.propTypes = {
   handleBookmarks: PropTypes.func,
   handleRead: PropTypes.func,
+  added: PropTypes.bool,
 };
 export default Blogs;
